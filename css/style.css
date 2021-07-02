@@ -1,12 +1,97 @@
-body {
-    background-color: gray;
+@font-face {
+  font-family: 'Pink';
+  src: url('../assets/fonts/Pink.eot');
+  src: url('../assets/fonts/Pink.eot?#iefix') format('embedded-opentype'),
+      url('../assets/fonts/Pink.woff2') format('woff2'),
+      url('../assets/fonts/Pink.woff') format('woff'),
+      url('../assets/fonts/Pink.ttf') format('truetype');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000000;
+  z-index: 2;
+}
+
+.prim-color-1 {
+  color: #F9C820;
+}
+
+.prim-color-2 {
+  color: #F1507B;
+}
+
+#game {
 	/* Use a system font, if none are available use an available sans-sarif   font */
-	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-	margin: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  height: 760px;
+  width: 360px;
+  font-family: 'Pink';
+  font-weight: 500;
+  font-style: normal;
+	margin: 0 auto;
+  /* display: flex; */
+  background: rgb(5,84,242);
+  background: linear-gradient(180deg, rgba(5,84,242,1) 35%, rgba(3,28,166,1) 100%);
+  background: url('../assets/images/background.png');
+  font-display: swap;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+header img {
+  width: 248px;
+  height: auto;
+}
+
+header {
+  padding: 50px 0;
+  position: relative;
+  z-index: 100;
+}
+
+header:before {
+  position: absolute;
+  content: "";
+  width: 380px;
+  height: 470px;
+  background: url('../assets/images/shadow.svg');
+  background-repeat: no-repeat;
+  background-position: 4px 0px;
+  top: 57px;
+  left: -57px;
+  z-index: -1;
+}
+
+button {
+  border: none;
+  font-family: 'Pink';
+  color: #ffffff;
+  font-size: 24px;
+  text-shadow: 0px 5px 0px rgba(0,0,0,0.15);
+  width: 300px;
+  height: 100px;
+  margin: 5px;
+  position: relative;
+  z-index: 100;
+}
+
+a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+#easy {
+  background: url('../assets/images/menu-btn-1.svg') no-repeat center;
+}
+
+#normal {
+  background: url('../assets/images/menu-btn-2.svg') no-repeat center;
+}
+
+#hard {
+  background: url('../assets/images/menu-btn-1.svg') no-repeat center;
 }
 
 section.board {
@@ -16,9 +101,185 @@ section.board {
   grid-gap: 0vmin;
 }
 
-div {
-  border: 3px solid black;
-  font-size: 8vmin;
+#game #menu,
+#game #menu header,
+#game #select {
+  width: 85%;
+  margin: auto;
+}
+
+#sm-back-btn {
+  background: url('../assets/images/back-btn-sm.svg') no-repeat left;
+  width:initial;
+  font-size: 19px;
+  padding: 15px;
+  margin: 0px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 40px;
   text-align: center;
-  vertical-align: middle;
+  text-shadow: 0px 8px 0px rgba(0,0,0,0.40);
+  line-height: 45px;
+  margin: 1px 0 30px;
+  padding: 1px 0;
+  width: 300px;
+}
+
+#select-x, 
+#select-o {
+  width: 300px;
+  height: 250px;
+  font-size: 120px;
+  margin: 0 0 0 0.5px;
+}
+
+#select-x {
+  background: url('../assets/images/sq-btn-1.svg') no-repeat center;
+}
+
+#select-o {
+  background: url('../assets/images/sq-btn-2.svg') no-repeat center;
+}
+
+#players {
+  color: #ffffff;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-shadow: 0px 4px 0px rgba(0,0,0,0.40);
+}
+
+#scores {
+  display: flex;
+  flex-direction: row;
+}
+
+#h-score,
+#b-score {
+  width: 180px;
+}
+
+#player-select {
+  /* background: url('../assets/images/turn-box.svg') no-repeat center;
+  background-size: 300px, 60px;
+  background-position: 0px 6px; */
+  height: 130px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  margin: 0 auto;
+  padding: 0px;
+  font-size: 60px;
+  position: relative;
+}
+
+#player-select.yellow .cls-2 {
+  fill: #F9C820;
+}
+
+#player-select.pink .cls-2 {
+  fill: #F1507B;
+}
+
+#player-select .cls-2 {
+  fill: #3255ed;
+}
+
+#player-select .cls-3 {
+  fill: #FFFFFF;
+}
+
+#player-select #cur-player-box {
+  position: relative;
+  z-index: 100;
+  top: 35px;
+}
+
+#player-select svg {
+  position: absolute;
+  width: auto;
+  height: 130px;
+  left: 0;
+  top: 0;
+}
+
+#player-text {
+  font-size: 23px;
+  text-shadow: 0px 8px 0px rgba(0,0,0,0.40);
+}
+/* THIS IS THE CSS FOR THE PLAYING GRID */
+#ttt-grid {
+  background-color: #ffffff;
+  box-shadow: 0px 8px 0px rgba(0,0,0,0.20);
+  height: 310px;
+  width: 310px;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+#grid div {
+  z-index: 0;
+  position: relative;
+  margin: 6px 5.5px 2px;
+  padding: 7px 3px;
+  width: 85px;
+  height: 80px;
+}
+
+.grid-box {
+  position: absolute;
+  z-index: 100;
+  left: 20px;
+  top: 0px;
+  font-size: 60px;
+  color: #ffffff;
+  text-shadow: 0px 6px 0px rgba(0,0,0,0.40);;
+}
+
+#grid {
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+#grid div {
+  cursor: pointer;
+}
+
+#grid div.yellow,
+#grid div.pink,
+#grid div.green {
+  cursor: not-allowed
+}
+
+#grid div.yellow .cls-3 {
+  fill: #F9C820;
+}
+
+#grid div.pink .cls-3 {
+  fill: #F1507B;
+}
+
+#grid div.green .cls-3 {
+  fill: #00c788;
+}
+
+#play-again {
+  margin: 15px 30px;
+  background: none;
+  cursor: pointer;
+}
+
+h3 {
+  position: absolute;
+  font-family: 'Pink';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  color: #ffffff;
+  z-index: 300;
+  top: 0px;
+  left: 55px;
 }

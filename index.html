@@ -4,24 +4,89 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
 	<link rel="stylesheet" href="./css/style.css">
 	<script defer src="./js/app.js"></script>
+	<link rel="preload" href="Pink.woff2" as="font" type="font/woff2" crossorigin>
 	<title>Tic Tac Toe</title>
 </head>
 <body>
-	<h1>Tic-Tac-Toe</h1>
-	<h2 id="message">Message</h2>
+	<section id="game">
+		<section id="menu" style="display: none;">
+			<header>
+				<img src="assets/images/logo.svg" alt="Tic Tac Toe" />
+			</header>
+			<button id="easy">easy peasy</button>
+			<button id="normal">normie</button>
+			<button id="hard">don't</button>
+		</section>
+		
+		<section id="select" style="display: none;">
+			<button id="sm-back-btn">back</button>
+			<h1>Choose Your Thingie</h1>
+			<button id="select-x">X</button>
+			<button id="select-o">O</button>
+		</section>
 
-	<section class="board">
-		<div id="sq0"></div>
-		<div id="sq1"></div>
-		<div id="sq2"></div>
-		<div id="sq3"></div>
-		<div id="sq4"></div>
-		<div id="sq5"></div>
-		<div id="sq6"></div>
-		<div id="sq7"></div>
-		<div id="sq8"></div>
-	</section>    
+		<section id="players" style="display: non;">
+			<div id="human">
+				<p>exies:</p>
+			</div>
+			<div id="bot">
+				<p>ozies:</p>
+			</div>
+			<section id="scores">
+				<div><h1 id="h-score">0</h1></div>
+				<div><h1 id="b-score">0</h1></div>
+			</section>
+			<h1 id="player-select">
+				<span id="cur-player-box">exies</span>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 290.54 125.42"><defs><style>.cls-1{fill:#010b87;opacity:0.25;}.cls-2{fill:#f9c820;}.cls-3{fill:#fff;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><polygon class="cls-1" points="280.71 14.62 10.16 10.17 0 10 0 20.17 0 115.42 0 125.42 10 125.42 280.54 125.42 290.54 125.42 290.54 115.42 290.54 24.62 290.54 14.79 280.71 14.62"/><g id="Group_3" data-name="Group 3"><g id="Path_55-3" data-name="Path 55-3"><path class="cls-2" d="M285.54,110.42H5V5.08l5.08.09L280.63,9.62l4.91.08V110.42Z"/><path class="cls-3" d="M10,10.17v95.25H280.54V14.62L10,10.17M0,0,10.16.17,280.71,4.62l9.83.16V115.42H0V0Z"/></g></g></g></g></svg>			</h1>
+			<h1 id="player-text">its your turn!</h1>
+		</section>
+
+		<section id="ttt-grid">
+			<section id="grid">
+				<div class="" data-tile="1">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_5" data-name="Group 5" class="cls-1"><path id="Path_55-3" data-name="Path 55-3" class="cls-2" d="M0,10l85.93,3.57V86.22H0Z"/></g><g id="Group_5-2" data-name="Group 5"><path id="Path_55-3-2" data-name="Path 55-3" class="cls-3" d="M0,0,85.93,3.57V76.22H0Z"/></g></g></g></svg>
+					<span class="grid-box">1</span>
+				</div>
+				<div class="" data-tile="2">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_6" data-name="Group 6" class="cls-1"><path id="Path_55-4" data-name="Path 55-4" class="cls-2" d="M85.93,10,0,13.57V86.22H85.93Z"/></g><g id="Group_6-2" data-name="Group 6"><path id="Path_55-4-2" data-name="Path 55-4" class="cls-3" d="M85.93,0,0,3.57V76.22H85.93Z"/></g></g></g></svg>
+					<span class="grid-box">2</span>
+				</div>
+				<div class="" data-tile="3">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_5" data-name="Group 5" class="cls-1"><path id="Path_55-3" data-name="Path 55-3" class="cls-2" d="M0,10l85.93,3.57V86.22H0Z"/></g><g id="Group_5-2" data-name="Group 5"><path id="Path_55-3-2" data-name="Path 55-3" class="cls-3" d="M0,0,85.93,3.57V76.22H0Z"/></g></g></g></svg>
+					<span class="grid-box">3</span>
+				</div>
+				<div class="" data-tile="4">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_6" data-name="Group 6" class="cls-1"><path id="Path_55-4" data-name="Path 55-4" class="cls-2" d="M85.93,10,0,13.57V86.22H85.93Z"/></g><g id="Group_6-2" data-name="Group 6"><path id="Path_55-4-2" data-name="Path 55-4" class="cls-3" d="M85.93,0,0,3.57V76.22H85.93Z"/></g></g></g></svg>
+					<span class="grid-box">4</span>
+				</div>
+				<div class="" data-tile="5">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_5" data-name="Group 5" class="cls-1"><path id="Path_55-3" data-name="Path 55-3" class="cls-2" d="M0,10l85.93,3.57V86.22H0Z"/></g><g id="Group_5-2" data-name="Group 5"><path id="Path_55-3-2" data-name="Path 55-3" class="cls-3" d="M0,0,85.93,3.57V76.22H0Z"/></g></g></g></svg>
+					<span class="grid-box">5</span>
+				</div>
+				<div class="" data-tile="6">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_6" data-name="Group 6" class="cls-1"><path id="Path_55-4" data-name="Path 55-4" class="cls-2" d="M85.93,10,0,13.57V86.22H85.93Z"/></g><g id="Group_6-2" data-name="Group 6"><path id="Path_55-4-2" data-name="Path 55-4" class="cls-3" d="M85.93,0,0,3.57V76.22H85.93Z"/></g></g></g></svg>
+					<span class="grid-box">6</span>
+				</div>
+				<div class="" data-tile="7">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_5" data-name="Group 5" class="cls-1"><path id="Path_55-3" data-name="Path 55-3" class="cls-2" d="M0,10l85.93,3.57V86.22H0Z"/></g><g id="Group_5-2" data-name="Group 5"><path id="Path_55-3-2" data-name="Path 55-3" class="cls-3" d="M0,0,85.93,3.57V76.22H0Z"/></g></g></g></svg>
+					<span class="grid-box">7</span>
+				</div>
+				<div class="" data-tile="8">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_6" data-name="Group 6" class="cls-1"><path id="Path_55-4" data-name="Path 55-4" class="cls-2" d="M85.93,10,0,13.57V86.22H85.93Z"/></g><g id="Group_6-2" data-name="Group 6"><path id="Path_55-4-2" data-name="Path 55-4" class="cls-3" d="M85.93,0,0,3.57V76.22H85.93Z"/></g></g></g></svg>
+					<span class="grid-box">8</span>
+				</div>
+				<div class="" data-tile="9">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 85.93 86.22"><defs><style>.cls-1{opacity:0.25;}.cls-2{fill:#010b87;}.cls-3{fill:#3155ee;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><g id="Group_5" data-name="Group 5" class="cls-1"><path id="Path_55-3" data-name="Path 55-3" class="cls-2" d="M0,10l85.93,3.57V86.22H0Z"/></g><g id="Group_5-2" data-name="Group 5"><path id="Path_55-3-2" data-name="Path 55-3" class="cls-3" d="M0,0,85.93,3.57V76.22H0Z"/></g></g></g></svg>
+					<span class="grid-box">9</span>
+				</div>
+			</section>
+		</section>
+			<button id="play-again"> <img src="../ttt-weekend/assets/images/back-btn-lg.svg" alt="play"><h3>play again</h3></button>
+	</section>
+
 </body>
 </html>
